@@ -19,6 +19,26 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Update sort orders for profiles (must be before /:platform to avoid route conflict)
+router.post('/reorder', async (req, res) => {
+  try {
+    const { orders } = req.body;
+    
+    if (!Array.isArray(orders)) {
+      return res.status(400).json({ error: 'Orders must be an array' });
+    }
+
+    await PlatformConfig.updateSortOrders(orders);
+    
+    // Return updated configs
+    const configs = await PlatformConfig.findByUserId(req.user.userId);
+    res.json({ configs });
+  } catch (error) {
+    console.error('Reorder platform configs error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Get a specific platform config
 router.get('/:platform', async (req, res) => {
   try {
@@ -62,26 +82,6 @@ router.post('/:platform', async (req, res) => {
     res.json({ config });
   } catch (error) {
     console.error('Update platform config error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-// Update sort orders for profiles
-router.post('/reorder', async (req, res) => {
-  try {
-    const { orders } = req.body;
-    
-    if (!Array.isArray(orders)) {
-      return res.status(400).json({ error: 'Orders must be an array' });
-    }
-
-    await PlatformConfig.updateSortOrders(orders);
-    
-    // Return updated configs
-    const configs = await PlatformConfig.findByUserId(req.user.userId);
-    res.json({ configs });
-  } catch (error) {
-    console.error('Reorder platform configs error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
