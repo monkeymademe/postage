@@ -147,7 +147,7 @@ const UserManagement = () => {
       {showAddForm && (
         <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
           <h3 className="text-lg font-semibold mb-4">Add New User</h3>
-          <form onSubmit={handleAddUser} className="space-y-4">
+          <form onSubmit={handleAddUser} className="space-y-4" autoComplete="off">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email
@@ -158,6 +158,8 @@ const UserManagement = () => {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                autoComplete="off"
+                name="new-user-email"
               />
             </div>
             <div>
@@ -171,6 +173,8 @@ const UserManagement = () => {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                autoComplete="new-password"
+                name="new-user-password"
               />
             </div>
             <div>
@@ -225,6 +229,8 @@ const UserManagement = () => {
                       value={formData.email || user.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="px-2 py-1 border border-gray-300 rounded text-sm"
+                      autoComplete="off"
+                      name="edit-user-email"
                     />
                   ) : (
                     <div className="text-sm font-medium text-gray-900">
@@ -285,6 +291,8 @@ const UserManagement = () => {
                         value={resetPasswordData.newPassword}
                         onChange={(e) => setResetPasswordData({ ...resetPasswordData, newPassword: e.target.value })}
                         className="px-2 py-1 border border-gray-300 rounded text-sm w-40"
+                        autoComplete="new-password"
+                        name="reset-password-new"
                       />
                       <input
                         type="password"
@@ -292,6 +300,8 @@ const UserManagement = () => {
                         value={resetPasswordData.confirmPassword}
                         onChange={(e) => setResetPasswordData({ ...resetPasswordData, confirmPassword: e.target.value })}
                         className="px-2 py-1 border border-gray-300 rounded text-sm w-40"
+                        autoComplete="new-password"
+                        name="reset-password-confirm"
                       />
                       <div className="flex gap-2">
                         <button
