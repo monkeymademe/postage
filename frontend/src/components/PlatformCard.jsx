@@ -11,7 +11,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-blue-600 hover:bg-blue-700',
       focusRing: 'focus:ring-blue-500',
       maxChars: 5000,
-      icon: '📘',
     },
     linkedin: {
       name: 'LinkedIn',
@@ -19,7 +18,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-blue-600 hover:bg-blue-700',
       focusRing: 'focus:ring-blue-500',
       maxChars: 3000,
-      icon: '💼',
     },
     instagram: {
       name: 'Instagram',
@@ -27,7 +25,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-pink-600 hover:bg-pink-700',
       focusRing: 'focus:ring-pink-500',
       maxChars: 2200,
-      icon: '📷',
     },
     email: {
       name: 'Email',
@@ -35,7 +32,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-gray-600 hover:bg-gray-700',
       focusRing: 'focus:ring-gray-500',
       maxChars: 5000,
-      icon: '📧',
     },
     twitter: {
       name: 'Twitter',
@@ -43,7 +39,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-blue-600 hover:bg-blue-700',
       focusRing: 'focus:ring-blue-500',
       maxChars: 280,
-      icon: '🐦',
     },
     mastodon: {
       name: 'Mastodon',
@@ -51,7 +46,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-purple-600 hover:bg-purple-700',
       focusRing: 'focus:ring-purple-500',
       maxChars: 500,
-      icon: '🐘',
     },
     reddit: {
       name: 'Reddit',
@@ -59,7 +53,6 @@ const getPlatformInfo = (platform) => {
       buttonColor: 'bg-orange-600 hover:bg-orange-700',
       focusRing: 'focus:ring-orange-500',
       maxChars: 10000,
-      icon: '🔴',
     },
   };
 
@@ -70,7 +63,6 @@ const getPlatformInfo = (platform) => {
     buttonColor: 'bg-gray-600 hover:bg-gray-700',
     focusRing: 'focus:ring-gray-500',
     maxChars: 5000,
-    icon: '📱',
   };
 };
 
@@ -159,7 +151,6 @@ const PlatformCard = ({ platform, content: initialContent, post, trackingUrl, ut
     <div className={`bg-white rounded-lg shadow p-6 border-l-4 ${isDisabled ? 'border-gray-300 opacity-70' : info.borderColor}`}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
-          <span className="text-2xl">{info.icon}</span>
           <h3 className={`text-lg font-semibold ${isDisabled ? 'text-gray-500' : 'text-gray-900'}`}>{cardName}</h3>
           {isDisabled && (
             <span className="px-2 py-0.5 text-xs rounded-full bg-gray-200 text-gray-600">
