@@ -1,0 +1,368 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Tiptap Editor Styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid #2563eb;
+}
+
+.ProseMirror a {
+  color: #2563eb;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ProseMirror a:hover {
+  color: #1d4ed8;
+}
+
+.ProseMirror a[data-type="link"] {
+  cursor: pointer;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  line-height: 1.3;
+  color: #111827;
+}
+
+.ProseMirror h3 {
+  font-size: 1.17em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5em;
+  margin: 1em 0;
+  list-style-position: outside;
+  display: block;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror li {
+  display: list-item;
+  margin: 0.25em 0;
+  padding-left: 0.25em;
+  line-height: 1.6;
+}
+
+.ProseMirror li p {
+  margin: 0;
+  display: inline;
+}
+
+.ProseMirror ul ul,
+.ProseMirror ol ol,
+.ProseMirror ul ol,
+.ProseMirror ol ul {
+  margin: 0.5em 0;
+}
+
+.ProseMirror ul ul {
+  list-style-type: circle;
+}
+
+.ProseMirror ul ul ul {
+  list-style-type: square;
+}
+
+/* Ensure list items are properly indented */
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.ProseMirror code {
+  background-color: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.ProseMirror pre {
+  background-color: #f3f4f6;
+  padding: 1em;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.ProseMirror pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Additional Ghost CMS compatibility styles */
+.ProseMirror h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.ProseMirror h5 {
+  font-size: 0.83em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.ProseMirror h6 {
+  font-size: 0.67em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.ProseMirror u {
+  text-decoration: underline;
+}
+
+.ProseMirror sub {
+  vertical-align: sub;
+  font-size: 0.8em;
+}
+
+.ProseMirror sup {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid #e5e7eb;
+  margin: 1.5em 0;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.ProseMirror table th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+.ProseMirror [style*="text-align"] {
+  text-align: inherit;
+}
+
+.ProseMirror p[style*="text-align: center"] {
+  text-align: center;
+}
+
+.ProseMirror p[style*="text-align: right"] {
+  text-align: right;
+}
+
+.ProseMirror p[style*="text-align: justify"] {
+  text-align: justify;
+}
+
+/* Ghost CMS specific styles preservation */
+.ProseMirror [class*="kg-"] {
+  /* Preserve Ghost's kg-* classes for cards and special content */
+}
+
+.ProseMirror figure {
+  margin: 1em 0;
+}
+
+.ProseMirror figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror figcaption {
+  font-size: 0.875em;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+/* Preserve Ghost markdown card styles */
+.ProseMirror .kg-card {
+  margin: 1.5em 0;
+}
+
+.ProseMirror .kg-image-card {
+  margin: 1.5em 0;
+}
+
+.ProseMirror .kg-image-card img {
+  width: 100%;
+  height: auto;
+}
+
+/* Preserve any inline styles from Ghost */
+.ProseMirror [style] {
+  /* Allow inline styles to be preserved */
+}
+
+/* Display view styles for generated content (non-editor) */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 700;
+  color: #111827;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.prose h1 {
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+.prose h3 {
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose h4 {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose h5 {
+  font-size: 0.83em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose h6 {
+  font-size: 0.67em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
